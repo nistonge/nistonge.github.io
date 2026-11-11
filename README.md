@@ -6,6 +6,7 @@ Plain HTML and CSS, no build step, no frameworks. Live at **https://nistonge.git
 index.html        home: intro, experience cards, about, contact
 retrofit.html     City Structural seismic retrofit
 research.html     Gu Research Group: coral hydrodynamics and fabrication
+filament.html     3D Printer Filament Reclamation Project (SERC)
 campanile.html    Campanile Commons
 disc.html         El Cerrito BART redevelopment
 style.css         all styling and the colour palette, shared by every page
@@ -60,7 +61,7 @@ All of these are already in `assets/` and in place:
 | `assets/card-research.jpg` | Gu Research Group card |
 | `assets/card-campanile.jpg` | Cal Sustainable Solutions card |
 | `assets/card-disc.jpg` | DISC card |
-| `assets/card-serc.jpg` | ready for the SERC card |
+| `assets/card-filament.jpg` | 3D Printer Filament Reclamation card |
 
 The card images are built as 800 by 600 tiles with the logo centred on its own
 background colour, so the row stays even no matter how different the source
