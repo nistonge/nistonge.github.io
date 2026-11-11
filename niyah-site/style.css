@@ -1,0 +1,167 @@
+/* =========================================================================
+   Niyah St. Onge — site styles
+   One dark theme. All colours are the :root block directly below, so
+   changing a value there updates every page on the site.
+   ========================================================================= */
+
+:root{
+  /* --- background and surfaces --- */
+  --navy:#0C2033;          /* page background */
+  --navy-raised:#12304B;   /* cards, image frames */
+  --line:#1E4365;          /* hairline borders */
+
+  /* --- text --- */
+  --white:#F5F2EC;         /* body text and headings */
+  --white-dim:#B9C6D2;     /* captions and secondary text */
+
+  /* --- brown --- */
+  --brown:#C8914F;         /* labels, links, accents */
+  --brown-bright:#DCA767;  /* hover */
+  --brown-deep:#8F6230;    /* button backgrounds */
+
+  --display:'Newsreader',Georgia,'Times New Roman',serif;
+  --body:'Karla','Helvetica Neue',Arial,sans-serif;
+  --mono:'JetBrains Mono','SFMono-Regular',Consolas,monospace;
+  --measure:64ch;
+
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+body{
+  margin:0;background:var(--navy);color:var(--white);
+  font-family:var(--body);font-size:17px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--brown)}
+a:hover{color:var(--brown-bright)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--brown);outline-offset:3px;border-radius:3px}
+
+.wrap{max-width:960px;margin:0 auto;
+  padding-left:max(20px,env(safe-area-inset-left,0px));
+  padding-right:max(20px,env(safe-area-inset-right,0px));}
+
+/* ------------------------------------------------------------------ nav */
+nav{position:sticky;top:0;z-index:20;background:var(--navy);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;flex-wrap:wrap;gap:6px 20px;align-items:baseline;padding-block:13px}
+nav .me{font-family:var(--display);font-weight:600;font-size:1.06rem;letter-spacing:-.01em;
+  margin-right:auto;text-decoration:none;color:var(--white)}
+nav a{font-size:.9rem;text-decoration:none;color:var(--white-dim)}
+nav a:hover{color:var(--brown)}
+
+/* ----------------------------------------------------------------- hero */
+.hero{padding-block:62px 56px;border-bottom:1px solid var(--line)}
+.hero-inner{display:flex;flex-wrap:wrap;gap:36px;align-items:center}
+.portrait{position:relative;flex:0 0 196px;width:196px;height:196px;border-radius:50%;
+  overflow:hidden;background:var(--navy-raised);border:1px solid var(--line)}
+.portrait img{width:100%;height:100%;object-fit:cover;position:relative;z-index:1}
+.portrait .monogram{position:absolute;inset:0;display:none;align-items:center;justify-content:center;
+  font-family:var(--display);font-weight:600;font-size:3.5rem;letter-spacing:.02em;color:var(--brown)}
+.portrait.no-photo .monogram{display:flex}
+.hero-text{flex:1 1 330px;min-width:0}
+
+h1{font-family:var(--display);font-weight:600;font-size:clamp(2.2rem,5.6vw,3.2rem);
+  line-height:1.06;letter-spacing:-.025em;margin:0 0 16px;color:var(--white);text-wrap:balance}
+.hero h1{position:relative;padding-bottom:15px}
+.hero h1::after{content:"";position:absolute;left:0;bottom:0;width:64px;height:3px;
+  background:var(--brown);border-radius:2px}
+.standfirst{font-size:1.1rem;max-width:var(--measure);margin:0 0 20px;color:var(--white)}
+.meta{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--white-dim);display:flex;flex-wrap:wrap;gap:5px 16px;margin-bottom:24px}
+.links{display:flex;flex-wrap:wrap;gap:9px}
+.links a{display:inline-block;font-size:.92rem;font-weight:500;text-decoration:none;
+  padding:9px 17px;border-radius:7px;border:1px solid var(--line);
+  background:transparent;color:var(--white);transition:border-color .15s,color .15s,background .15s}
+.links a:hover{border-color:var(--brown);color:var(--brown)}
+.links a.primary{background:var(--brown-deep);border-color:var(--brown-deep);color:var(--white)}
+.links a.primary:hover{background:var(--brown);border-color:var(--brown);color:#10263B}
+
+/* ------------------------------------------------------------- sections */
+section{padding-block:60px;border-bottom:1px solid var(--line)}
+.kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--brown);margin:0 0 9px}
+.section-title{font-family:var(--display);font-weight:600;color:var(--white);
+  font-size:clamp(1.55rem,3.4vw,2rem);line-height:1.15;letter-spacing:-.018em;margin:0 0 28px}
+h3{font-family:var(--mono);font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--brown);margin:30px 0 8px;font-weight:500}
+p{margin:0 0 1em;max-width:var(--measure)}
+
+ul.plain{margin:0 0 1em;padding-left:1.15em;max-width:var(--measure)}
+ul.plain li{margin-bottom:.4em}
+ul.plain li::marker{color:var(--brown)}
+
+/* ---------------------------------------------------------------- cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:18px}
+.card{display:flex;flex-direction:column;text-decoration:none;color:var(--white);
+  background:var(--navy-raised);border:1px solid var(--line);border-radius:12px;overflow:hidden;
+  transition:border-color .16s,transform .16s,box-shadow .16s}
+.card:hover{border-color:var(--brown);transform:translateY(-2px);
+  box-shadow:0 8px 26px rgba(0,0,0,.3)}
+
+.card-media{position:relative;display:block;aspect-ratio:4/3;background:var(--navy);
+  border-bottom:1px solid var(--line);overflow:hidden}
+.card-media img{width:100%;height:100%;object-fit:cover;position:relative;z-index:1}
+.card-fallback{position:absolute;inset:0;display:none;align-items:center;justify-content:center;
+  color:var(--brown)}
+.card-media.no-img .card-fallback{display:flex}
+.card-fallback svg{width:46px;height:46px}
+.card:hover .card-media img{opacity:.92}
+
+.card-body{display:flex;flex-direction:column;gap:2px;padding:18px 20px 20px;flex:1}
+.card-org{font-family:var(--display);font-weight:600;font-size:1.12rem;line-height:1.25;
+  letter-spacing:-.012em;color:var(--white)}
+.card-role{font-family:var(--mono);font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--brown);margin-bottom:9px}
+.card-title{font-size:.97rem;font-weight:700;line-height:1.35;margin-bottom:5px;color:var(--white)}
+.card-desc{font-size:.92rem;line-height:1.55;color:var(--white-dim);margin-bottom:15px}
+.card-go{margin-top:auto;font-family:var(--mono);font-size:.7rem;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--brown)}
+.card-go::after{content:" \2192"}
+.card:hover .card-go{color:var(--brown-bright)}
+
+/* -------------------------------------------------------- project pages */
+main.project{padding-block:46px 20px}
+.back{display:inline-block;font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;
+  text-transform:uppercase;text-decoration:none;color:var(--white-dim);margin-bottom:28px}
+.back::before{content:"\2190  "}
+.back:hover{color:var(--brown)}
+main.project .sub{font-family:var(--mono);font-size:.76rem;letter-spacing:.05em;color:var(--white-dim);
+  margin:0 0 30px;text-transform:uppercase;max-width:none}
+main.project h2{font-family:var(--mono);font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--brown);margin:32px 0 8px;font-weight:500}
+
+figure{margin:0 0 26px}
+.shot{background:var(--navy-raised);border:1px solid var(--line);border-radius:10px;padding:12px}
+figcaption{font-size:.87rem;color:var(--white-dim);margin-top:10px;max-width:var(--measure);font-style:italic}
+.pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px;align-items:center}
+
+.note{background:rgba(200,145,79,.12);border-left:3px solid var(--brown);border-radius:0 8px 8px 0;
+  padding:14px 17px;font-size:.93rem;margin:30px 0 0;max-width:var(--measure)}
+.note p{margin:0;max-width:none}
+
+.pager{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;
+  margin-top:48px;padding-top:24px;border-top:1px solid var(--line)}
+.pager a{flex:1 1 220px;text-decoration:none;color:var(--white);font-family:var(--display);
+  font-size:1.05rem;line-height:1.25}
+.pager a.right{text-align:right}
+.pager span{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--brown);margin-bottom:4px}
+.pager a:hover{color:var(--brown)}
+
+/* --------------------------------------------------------------- footer */
+footer{padding-block:44px 64px;font-size:.92rem;color:var(--white-dim);border-top:1px solid var(--line)}
+footer p{max-width:var(--measure)}
+.contact-row{display:flex;flex-wrap:wrap;gap:8px 24px;margin-bottom:20px;font-size:1rem}
+.contact-row a{text-decoration:none}
+.contact-row a:hover{text-decoration:underline}
+.fineprint{margin-top:22px;font-size:.84rem;opacity:.75}
+
+@media (max-width:520px){
+  .portrait{flex-basis:136px;width:136px;height:136px}
+  .portrait .monogram{font-size:2.6rem}
+  .hero-inner{gap:24px}
+}
