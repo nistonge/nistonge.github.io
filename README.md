@@ -7,7 +7,7 @@ index.html        home: intro, experience cards, about, contact
 retrofit.html     City Structural seismic retrofit
 research.html     Gu Research Group: coral hydrodynamics and fabrication
 filament.html     3D Printer Filament Reclamation Project (SERC)
-campanile.html    Campanile Commons
+goldenbear.html   Golden Bear Computing (Cal Sustainable Solutions)
 disc.html         El Cerrito BART redevelopment
 style.css         all styling and the colour palette, shared by every page
 assets/           images and the resume PDF
@@ -59,7 +59,7 @@ All of these are already in `assets/` and in place:
 | `assets/portrait.jpg` | your photo in the circle on the home page |
 | `assets/card-retrofit.jpg` | City Structural card |
 | `assets/card-research.jpg` | Gu Research Group card |
-| `assets/card-campanile.jpg` | Cal Sustainable Solutions card |
+| `assets/card-goldenbear.jpg` | Cal Sustainable Solutions card |
 | `assets/card-disc.jpg` | DISC card |
 | `assets/card-filament.jpg` | 3D Printer Filament Reclamation card |
 
@@ -97,6 +97,36 @@ line you need to touch.
 ---
 
 ## Editing the text
+
+### The easy way: edit it in the browser
+
+You do not need to download anything, open an editor, or ask Claude.
+
+1. Go to `github.com/nistonge/nistonge.github.io`
+2. Click the file you want to change, for example `index.html`
+3. Click the **pencil icon** at the top right
+4. Change the words
+5. Scroll down, click **Commit changes**
+
+The site updates a minute or two later. If you break something, the **History**
+button on any file lets you look at older versions and copy the old text back.
+
+**What you are looking at.** The page is text wrapped in tags. A paragraph looks
+like this:
+
+```html
+<p>I am a third year at UC Berkeley studying Environmental ...</p>
+```
+
+You change the words between `<p>` and `</p>` and leave the tags alone. Same for
+everything else: edit what is between the tags, do not touch the pointy brackets.
+
+**A slightly nicer editor, same thing.** Open the repository and press the
+**`.`** key on your keyboard. GitHub opens a full code editor in your browser
+with the whole site in a sidebar. Edit, then use the Source Control panel on the
+left to commit. Good when you want to change several files at once.
+
+### Where things live
 
 Each project is its own file, so to change the City Structural page you only
 open `retrofit.html`. Every project page has the same structure:
