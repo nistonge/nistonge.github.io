@@ -1,116 +1,135 @@
 # Niyah St. Onge — personal site
 
-A single-page portfolio site. Plain HTML and CSS, no build step, no frameworks.
-Everything lives in `index.html` and the `assets/` folder.
+Plain HTML and CSS, no build step, no frameworks. Live at **https://nistonge.github.io**
 
 ```
-index.html          the whole site
-assets/             project images (optimized JPGs)
-README.md           this file
+index.html        home: intro, experience cards, about, contact
+retrofit.html     City Structural seismic retrofit
+research.html     Gu Research Group: coral hydrodynamics and fabrication
+campanile.html    Campanile Commons
+disc.html         El Cerrito BART redevelopment
+style.css         all styling and the colour palette, shared by every page
+assets/           images and the resume PDF
 ```
 
 ---
 
-## Putting it on GitHub Pages
+## Updating the live site
 
-You only have to do this once. After that, editing the site means editing
-`index.html` and pushing.
+1. Go to `github.com/nistonge/nistonge.github.io`
+2. **Add file → Upload files**, drag in whatever you changed
+3. **Commit changes**
 
-### 1. Make the repository
+**You do not delete the old file first.** Uploading a file with the same name
+and the same path replaces it and keeps the history. Only delete when you want
+a file gone for good, or when you are renaming one.
 
-On github.com, click **New repository**.
+One catch: the filename has to match exactly, capitals included. Uploading
+`Index.html` next to `index.html` creates a second file instead of replacing
+the first.
 
-Name it exactly:
+The site rebuilds a minute or two after you commit.
 
-```
-YOURUSERNAME.github.io
-```
+### One exception, this time only
 
-Replace `YOURUSERNAME` with your GitHub username, in lowercase. The name has to
-match your username exactly or Pages will not pick it up as a user site.
+The two research pages were merged into a single `research.html`. So on this
+upload you DO need to delete the two files it replaced, or they will sit on the
+site forever with nothing linking to them:
 
-Set it to **Public**. Do not add a README, a .gitignore or a license, since this
-folder already has what it needs.
+1. In the repo, click `coral.html`
+2. Click the **...** menu at the top right of the file view, then **Delete file**
+3. Commit
+4. Do the same for `flume.html`
 
-### 2. Upload the files
-
-The easy way, no command line:
-
-1. On the empty repository page, click **uploading an existing file**.
-2. Drag in `index.html`, `README.md`, and the whole `assets` folder.
-3. Scroll down and click **Commit changes**.
-
-The command line way, if you prefer it. From inside this folder:
-
-```bash
-git init
-git add .
-git commit -m "Initial site"
-git branch -M main
-git remote add origin https://github.com/YOURUSERNAME/YOURUSERNAME.github.io.git
-git push -u origin main
-```
-
-### 3. Turn on Pages
-
-In the repository, go to **Settings → Pages**. Under "Build and deployment",
-set **Source** to `Deploy from a branch`, **Branch** to `main`, folder `/ (root)`,
-and click **Save**.
-
-Wait two or three minutes. Your site will be live at:
-
-```
-https://YOURUSERNAME.github.io
-```
-
-If you see a 404 at first, give it another few minutes. The first build is the
-slow one.
+That is the only kind of situation where deleting is needed: a file that is
+going away, not a file that is being updated.
 
 ---
 
-## Editing it later
+## Images to add
 
-Everything is in `index.html`. The parts you are most likely to want to change:
+Six image slots. None of them are required for the site to work, so add them
+whenever you have them.
 
-| What | Where to look |
+All of these are already in `assets/` and in place:
+
+| File | Shows up as |
 |---|---|
-| Your headline and intro | inside `<header class="hero">` near the top |
-| A project's text | inside the `<section>` with that project's `id` |
-| Project order | move a whole `<section>` block up or down |
-| What the nav links to | the `<nav>` block |
-| Colors and fonts | the `:root` block in `<style>` |
-| Contact details | the `<footer>` at the bottom |
+| `assets/portrait.jpg` | your photo in the circle on the home page |
+| `assets/card-retrofit.jpg` | City Structural card |
+| `assets/card-research.jpg` | Gu Research Group card |
+| `assets/card-campanile.jpg` | Cal Sustainable Solutions card |
+| `assets/card-disc.jpg` | DISC card |
+| `assets/card-serc.jpg` | ready for the SERC card |
 
-Each project is one `<section>` with a comment above it saying which one it is,
-so they are easy to find.
+The card images are built as 800 by 600 tiles with the logo centred on its own
+background colour, so the row stays even no matter how different the source
+logos are. If you swap one, make a tile the same way rather than dropping in a
+raw logo, otherwise it will be cropped to fill the box.
 
-To remove a project entirely, delete its whole `<section>` block and its link in
-the nav. Nothing else will break.
+If an image file ever goes missing, that slot falls back to a drawn icon rather
+than breaking the page.
 
 ---
 
-## Adding your resume
+## Changing the colours
 
-There is deliberately no resume link on the site yet. Your resume PDF has your
-phone number on it, and a public site means anyone can download it.
+All of it is the `:root` block at the top of `style.css`. One place, every page.
 
-If you want one up there anyway:
+```css
+--navy:#0C2033;          /* page background */
+--navy-raised:#12304B;   /* cards and image frames */
+--line:#1E4365;          /* hairline borders */
 
-1. Make a copy of your resume with the phone number removed, leaving just your
-   email and LinkedIn.
-2. Save it as `assets/resume.pdf`.
-3. In `index.html`, find the `<div class="links">` block in the hero and add:
+--white:#F5F2EC;         /* body text and headings */
+--white-dim:#B9C6D2;     /* captions and secondary text */
 
-```html
-<a href="assets/resume.pdf">Resume</a>
+--brown:#C8914F;         /* labels, links, accents */
+--brown-bright:#DCA767;  /* hover */
+--brown-deep:#8F6230;    /* the main button */
 ```
 
+The site is a single dark theme now, so there is no second palette to keep in
+sync. If you ever want the background darker or warmer, `--navy` is the only
+line you need to touch.
+
 ---
 
-## A custom domain, later
+## Editing the text
 
-If you ever buy a domain, Pages supports it. Settings → Pages → Custom domain,
-then add the DNS records GitHub shows you. Nothing in these files has to change.
+Each project is its own file, so to change the City Structural page you only
+open `retrofit.html`. Every project page has the same structure:
+
+- `<h1>` the project title
+- `<p class="sub">` the line underneath with the org, year and tools
+- `<h2>` a small section label
+- `<p>` a paragraph
+- `<figure>` an image with its caption
+
+The home page card for each one is in `index.html`, inside `<div class="cards">`.
+Each card holds the company name, your position, the project title and a one
+line description. If you change a project title, change it in both places.
+
+### Removing a project
+
+Delete its `.html` file, delete its `<a class="card">` block in `index.html`,
+and fix the `Previous` / `Next` links at the bottom of the two pages that
+pointed at it.
+
+### Adding a project
+
+Copy an existing project file, rename it, replace the content, then copy one of
+the `<a class="card">` blocks in `index.html` and point it at the new file.
+
+---
+
+## The resume
+
+`assets/NiyahStOnge_Resume.pdf` is linked from the nav, the hero and the footer.
+
+It deliberately has **no phone number on it**, because anyone on the internet can
+download it. It carries your email, LinkedIn and this site's address instead. If
+you replace it, keep the same filename and the three links keep working.
 
 ---
 
@@ -122,3 +141,10 @@ image file itself, not hidden with CSS, so they cannot be recovered from the pag
 No detail sheets are included.
 
 The research figures are from the Gu Research Group.
+
+---
+
+## A custom domain, later
+
+If you ever buy a domain: repository **Settings → Pages → Custom domain**, then
+add the DNS records GitHub shows you. Nothing in these files has to change.

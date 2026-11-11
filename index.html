@@ -8,259 +8,120 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Karla:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
-<style>
-:root{
-  --bg:#F5F7F8; --surface:#FFFFFF; --ink:#101A22; --muted:#5A6771;
-  --line:#E0E6EA; --accent:#0D6C78; --accent-soft:#E2F0F1;
-  --display:'Newsreader',Georgia,'Times New Roman',serif;
-  --body:'Karla','Helvetica Neue',Arial,sans-serif;
-  --mono:'JetBrains Mono','SFMono-Regular',Consolas,monospace;
-  --measure:64ch;
-}
-@media (prefers-color-scheme:dark){
-  :root{
-    --bg:#0C1318; --surface:#131C22; --ink:#E5ECF1; --muted:#95A3AD;
-    --line:#223038; --accent:#53B5BF; --accent-soft:#102A2E;
-    color-scheme:dark;
-  }
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{
-  margin:0;background:var(--bg);color:var(--ink);
-  font-family:var(--body);font-size:17px;line-height:1.65;
-  -webkit-font-smoothing:antialiased;
-}
-img{max-width:100%;height:auto;display:block}
-a{color:var(--accent)}
-a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-
-.wrap{max-width:900px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
-
-/* nav */
-nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;flex-wrap:wrap;gap:8px 22px;align-items:baseline;padding-block:13px}
-nav .me{font-family:var(--display);font-weight:600;font-size:1.05rem;letter-spacing:-.01em;margin-right:auto}
-nav a{font-size:.9rem;text-decoration:none;color:var(--muted)}
-nav a:hover{color:var(--accent)}
-
-/* hero */
-header.hero{padding-block:72px 54px;border-bottom:1px solid var(--line)}
-h1{font-family:var(--display);font-weight:600;font-size:clamp(2.3rem,6vw,3.5rem);line-height:1.05;letter-spacing:-.025em;margin:0 0 20px;text-wrap:balance}
-.standfirst{font-size:1.18rem;max-width:var(--measure);margin:0 0 26px;color:var(--ink)}
-.standfirst em{font-style:italic;font-family:var(--display)}
-.meta{font-family:var(--mono);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 18px;margin-bottom:26px}
-.links{display:flex;flex-wrap:wrap;gap:10px}
-.links a{display:inline-block;font-size:.93rem;font-weight:500;text-decoration:none;padding:9px 17px;border-radius:7px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
-.links a.primary{background:var(--accent);border-color:var(--accent);color:#fff}
-@media (prefers-color-scheme:dark){.links a.primary{color:#07171A}}
-.links a:hover{border-color:var(--accent)}
-
-/* sections */
-section{padding-block:60px;border-bottom:1px solid var(--line)}
-.kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
-h2{font-family:var(--display);font-weight:600;font-size:clamp(1.6rem,3.6vw,2.1rem);line-height:1.15;letter-spacing:-.018em;margin:0 0 8px;text-wrap:balance}
-.sub{font-family:var(--mono);font-size:.76rem;letter-spacing:.06em;color:var(--muted);margin:0 0 28px;text-transform:uppercase}
-h3{font-family:var(--mono);font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin:30px 0 7px;font-weight:500}
-p{margin:0 0 1em;max-width:var(--measure)}
-
-figure{margin:0 0 6px}
-.shot{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px;margin-top:6px}
-figcaption{font-size:.87rem;color:var(--muted);margin-top:10px;max-width:var(--measure);font-style:italic}
-.pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;align-items:center}
-.pair .shot{margin-top:0}
-
-.note{background:var(--accent-soft);border-left:2px solid var(--accent);border-radius:0 8px 8px 0;padding:13px 16px;font-size:.93rem;margin:22px 0 0;max-width:var(--measure)}
-.note p{margin:0;max-width:none}
-
-ul.plain{margin:0 0 1em;padding-left:1.15em;max-width:var(--measure)}
-ul.plain li{margin-bottom:.4em}
-ul.plain li::marker{color:var(--accent)}
-
-footer{padding-block:46px 64px;font-size:.9rem;color:var(--muted)}
-footer p{max-width:var(--measure)}
-.contact-row{display:flex;flex-wrap:wrap;gap:8px 26px;margin-bottom:22px;font-size:1rem}
-.contact-row a{text-decoration:none}
-.contact-row a:hover{text-decoration:underline}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <nav>
   <div class="wrap">
-    <span class="me">Niyah St. Onge</span>
-    <a href="#work">Work</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+    <a class="me" href="index.html">Niyah St. Onge</a>
+    <a href="index.html#work">Work</a>
+    <a href="index.html#about">About</a>
+    <a href="assets/NiyahStOnge_Resume.pdf">Resume</a>
+    <a href="index.html#contact">Contact</a>
   </div>
 </nav>
 
 <header class="hero">
-  <div class="wrap">
-    <h1>Water, structures, and the things that move between them.</h1>
-    <p class="standfirst">I study Environmental Engineering Science at UC Berkeley. My work runs from modeling how water moves around a coral to producing the drawing sets that get a building through permitting.</p>
-    <div class="meta">
-      <span>UC Berkeley</span><span>B.S. Environmental Engineering Science</span><span>Class of 2028</span><span>San Francisco</span>
+  <div class="wrap hero-inner">
+    <!-- PHOTO: replace assets/portrait.jpg with your own photo, roughly square works best.
+         If you have no photo yet the monogram below shows instead. -->
+    <div class="portrait">
+      <img src="assets/portrait.jpg" alt="Niyah St. Onge" width="420" height="420"
+           onerror="this.closest('.portrait').classList.add('no-photo');this.remove();">
+      <span class="monogram" aria-hidden="true">NS</span>
     </div>
-    <div class="links">
-      <a class="primary" href="#work">See the work</a>
-      <a href="https://www.linkedin.com/in/niyahstonge">LinkedIn</a>
-      <a href="mailto:nistonge@berkeley.edu">Email</a>
+    <div class="hero-text">
+      <h1>Niyah St. Onge</h1>
+      <p class="standfirst">Environmental Engineering Science at UC Berkeley, class of 2028. I work on water, from modeling how it moves around a submerged structure to designing the stormwater that leaves a site.</p>
+      <div class="meta"><span>San Francisco</span><span>B.S. Environmental Engineering Science</span><span>GPA 3.86</span></div>
+      <div class="links">
+        <a class="primary" href="#work">See the work</a>
+        <a href="assets/NiyahStOnge_Resume.pdf">Resume</a>
+        <a href="https://www.linkedin.com/in/niyahstonge">LinkedIn</a>
+        <a href="mailto:nistonge@berkeley.edu">Email</a>
+      </div>
     </div>
   </div>
 </header>
 
-<main id="work">
-
-<!-- ============================================ CITY STRUCTURAL -->
-<section id="retrofit">
+<main>
+<section id="work">
   <div class="wrap">
-    <p class="kicker">Professional work</p>
-    <h2>Soft-story seismic retrofit</h2>
-    <p class="sub">City Structural, Inc. &middot; San Francisco &middot; 2026 &middot; Layout, SketchUp, AutoCAD</p>
-
-    <figure>
-      <div class="shot"><img src="assets/city-structural-plan.jpg" alt="Proposed second floor framing plan with first floor plan below, from a soft-story seismic retrofit drawing set" loading="lazy" width="1800" height="1200"></div>
-      <figcaption>Proposed second floor framing with the first floor plan below, issued under Oakland's Mandatory Soft-Story Retrofit Program. Project location and the engineer of record's seal are redacted. Shared with permission.</figcaption>
-    </figure>
-
-    <h3>The work</h3>
-    <p>Oakland's mandatory retrofit ordinance requires older wood frame buildings with a weak ground storey to be strengthened. This sheet locates new shear walls, collectors, blocking and straps through an existing building so that lateral load has a continuous path down to the foundation, and calls out where the soft-storey condition exists and where it does not.</p>
-
-    <h3>What I do</h3>
-    <p>I work from existing building conditions to produce the plan sets and documentation issued for permitting and construction, run the supporting design calculations, and check the drawings against the governing code and ordinance requirements before they go out.</p>
-
-    <h3>What this kind of drawing has to do</h3>
-    <p>A retrofit drawing is read by a plan checker, a contractor and an inspector, and each one needs something different from it. The shear wall schedule has to be unambiguous about fastener type and spacing. The notes have to survive being read on a jobsite. Every callout has to point somewhere real. Most of the care goes into removing the ways a sheet can be misread.</p>
-
-    <div class="note"><p><strong>Confidentiality.</strong> Floor plans are shown with my supervisor's permission. The project location and the engineer of record's seal and signature are redacted, and no detail sheets are included.</p></div>
+    <p class="kicker">Experience</p>
+    <h2 class="section-title">Selected work</h2>
+    <div class="cards">
+      <a class="card" href="retrofit.html">
+        <span class="card-media">
+          <!-- IMAGE: drop a photo at assets/card-retrofit.jpg to replace the icon -->
+          <img src="assets/card-retrofit.jpg" alt="" loading="lazy"
+               onerror="this.closest('.card-media').classList.add('no-img');this.remove();">
+          <span class="card-fallback" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 42V14l16-8 16 8v28"/><path d="M8 28h32"/><path d="M8 28 24 42"/><path d="M40 28 24 42"/><path d="M14 14v14M34 14v14"/></svg></span>
+        </span>
+        <span class="card-body">
+          <span class="card-org">City Structural, Inc.</span>
+          <span class="card-role">Design Engineer Intern</span>
+          <span class="card-title">Soft-story seismic retrofit</span>
+          <span class="card-desc">Producing the plan sets, calculations and permitting documents for a mandatory retrofit in Oakland.</span>
+          <span class="card-go">View project</span>
+        </span>
+      </a>
+      <a class="card" href="research.html">
+        <span class="card-media">
+          <!-- IMAGE: drop a photo at assets/card-research.jpg to replace the icon -->
+          <img src="assets/card-research.jpg" alt="" loading="lazy"
+               onerror="this.closest('.card-media').classList.add('no-img');this.remove();">
+          <span class="card-fallback" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 42V27"/><path d="M24 27c0-5-6-7-6-12M24 27c0-5 6-7 6-12"/><path d="M18 15c0-3-3-4-3-7M18 15c0-3 2-4 2-7M30 15c0-3 3-4 3-7M30 15c0-3-2-4-2-7"/><path d="M12 42h24"/><path d="M4 34c2-2 4 2 6 0M38 34c2-2 4 2 6 0"/><path d="M4 22c2-2 4 2 6 0M38 22c2-2 4 2 6 0"/></svg></span>
+        </span>
+        <span class="card-body">
+          <span class="card-org">Gu Research Group, UC Berkeley</span>
+          <span class="card-role">Research Assistant</span>
+          <span class="card-title">Coral hydrodynamics and fabrication</span>
+          <span class="card-desc">Measuring how coral shape changes drag and flow, then checking a damping setting the whole group had inherited.</span>
+          <span class="card-go">View project</span>
+        </span>
+      </a>
+      <a class="card" href="campanile.html">
+        <span class="card-media">
+          <!-- IMAGE: drop a photo at assets/card-campanile.jpg to replace the icon -->
+          <img src="assets/card-campanile.jpg" alt="" loading="lazy"
+               onerror="this.closest('.card-media').classList.add('no-img');this.remove();">
+          <span class="card-fallback" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 42V22h10v20"/><path d="M20 42V10h8v32"/><path d="M32 42V26h10v16"/><path d="M4 42h40"/><path d="M24 4v6"/><path d="M36 20c0-3 2-5 4-5 0 3-2 5-4 5Z"/></svg></span>
+        </span>
+        <span class="card-body">
+          <span class="card-org">Cal Sustainable Solutions (ASCE)</span>
+          <span class="card-role">Water Specialist</span>
+          <span class="card-title">Campanile Commons</span>
+          <span class="card-desc">Modeling a mixed-use development, then moving the solar array when the roof load did not work.</span>
+          <span class="card-go">View project</span>
+        </span>
+      </a>
+      <a class="card" href="disc.html">
+        <span class="card-media">
+          <!-- IMAGE: drop a photo at assets/card-disc.jpg to replace the icon -->
+          <img src="assets/card-disc.jpg" alt="" loading="lazy"
+               onerror="this.closest('.card-media').classList.add('no-img');this.remove();">
+          <span class="card-fallback" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="14" y="8" width="20" height="24" rx="4"/><path d="M14 22h20"/><path d="M19 38l-4 6M29 38l4 6"/><circle cx="19" cy="27" r="1.4" fill="currentColor" stroke="none"/><circle cx="29" cy="27" r="1.4" fill="currentColor" stroke="none"/><path d="M4 42h40"/></svg></span>
+        </span>
+        <span class="card-body">
+          <span class="card-org">Design and Innovation for Sustainable Cities</span>
+          <span class="card-role">Summer Design Cohort</span>
+          <span class="card-title">El Cerrito BART redevelopment</span>
+          <span class="card-desc">Site analysis for transit-oriented redevelopment, presented in formal design reviews.</span>
+          <span class="card-go">View project</span>
+        </span>
+      </a>
+    </div>
   </div>
 </section>
 
-<!-- ============================================ CORAL -->
-<section id="coral">
-  <div class="wrap">
-    <p class="kicker">Research</p>
-    <h2>Coral geometry under flow</h2>
-    <p class="sub">Gu Research Group, UC Berkeley &middot; 2025 to present &middot; MATLAB, lattice Boltzmann CFD</p>
-
-    <h3>The problem</h3>
-    <p>The group needs to know how a coral's shape changes the flow around it, which means generating many geometries and testing them under identical conditions. The existing generator had too many free parameters to sweep efficiently, so the first task was to shrink the input space without losing the range of shapes worth testing.</p>
-
-    <h3>What I did</h3>
-    <p>I fixed volume, seed and minimum branch thickness so every specimen is directly comparable, and reduced the generator to five shape inputs: slenderness, complexity, spread angle, dominance and blobbiness. Three representative geometries at equal volume then went through a lattice Boltzmann channel, 150 by 50 by 50 mm on a 0.75 mm grid, with the coral seated on the floor.</p>
-
-    <figure>
-      <div class="shot"><img src="assets/coral-drag.jpg" alt="Four plots comparing three coral geometries: drag against approach velocity, drag coefficient against Reynolds number, force at 1 mm per second, and share of channel flow through each footprint" loading="lazy" width="1600" height="981"></div>
-      <figcaption>Three geometries at equal volume: drag against approach velocity, drag coefficient against Reynolds number, force at 1 mm/s, and the share of channel flow passing through each footprint.</figcaption>
-    </figure>
-
-    <h3>What it showed</h3>
-    <p>Shape matters more than volume. The compact form carries 0.25 &micro;N at 1 mm/s against 0.62 &micro;N for the slender form, roughly two and a half times the load for the same amount of material. The flow result is more striking. The compact form passes 2 percent of channel flow through its footprint against 26 percent for the open one. Compact corals push water around themselves. Open branching corals let it through.</p>
-
-    <figure>
-      <div class="shot"><img src="assets/coral-stress.jpg" alt="Bending stress along the height of each coral specimen and the resulting safety factors" loading="lazy" width="1600" height="640"></div>
-      <figcaption>Bending stress along the height of each specimen, and the resulting safety factors.</figcaption>
-    </figure>
-
-    <h3>Structure, and what I would fix</h3>
-    <p>Stress concentrates at the mount, but the slender form carries it the whole way up while the compact form sheds it within 15 mm. Nothing is near failure, with safety factors of roughly 125 to 1364, though the strength value is a placeholder for sintered calcium carbonate. The real limitation is the solver. These runs cap at Reynolds 3, far below reef currents of 5 to 30 cm/s, so the ranking should hold but the absolute forces are not yet transferable.</p>
-  </div>
-</section>
-
-<!-- ============================================ FLUME -->
-<section id="flume">
-  <div class="wrap">
-    <p class="kicker">Research</p>
-    <h2>Wave flume and fabrication</h2>
-    <p class="sub">Gu Research Group, UC Berkeley &middot; 2026 &middot; SPHinXsys, C++, binder jet printing, image segmentation</p>
-
-    <h3>The setup</h3>
-    <p>The geometries feed a smoothed particle hydrodynamics wave flume: a paddle wavemaker at one end, the coral as a rigid solid on the floor, energy probes upstream and downstream, and a damping buffer at the far end to stop waves reflecting back into the measurement.</p>
-
-    <figure>
-      <div class="shot"><img src="assets/wave-flume.jpg" alt="Wave flume geometry in side and top view with particle types and the program workflow" loading="lazy" width="1149" height="1200"></div>
-      <figcaption>Flume geometry in side and top view, particle types, and the program workflow.</figcaption>
-    </figure>
-
-    <h3>The decision I owned</h3>
-    <p>Every archived run in the group repository used a damping strength of 20, but nobody had checked whether that was right or simply the first value that worked. I ran the first sweep of it, at 2.5, 5, 10, 20 and 40 in an empty tank, and measured how much wave energy each setting absorbed. A strength of 20 sits on the flat part of the absorption curve. Dropping to 2.5 leaves roughly 16 percent more energy in the tank, which is enough to contaminate a measurement, while raising it to 40 buys about 2 percent over 20 at a higher computational cost. I recommended keeping 20, which now has a reason behind it rather than an inheritance.</p>
-
-    <h3>Print quality control</h3>
-    <p>Alongside the simulation work, the group prints lattice test structures in boron carbide on an Oasis binder jet printer. Binder jetting leaves defects that are easy to miss by eye at this scale, so I segment photographs of the build plate to binary and use the result to identify print errors before parts go on to testing. Thresholding removes the surface sheen and plate curvature that otherwise corrupt edge detection.</p>
-
-    <figure>
-      <div class="pair">
-        <div class="shot"><img src="assets/segment-before.jpg" alt="Photograph of printed boron carbide lattices before segmentation" loading="lazy" width="503" height="439"></div>
-        <div class="shot"><img src="assets/segment-after.jpg" alt="The same lattices after segmentation to a binary image" loading="lazy" width="415" height="362"></div>
-      </div>
-      <figcaption>Printed boron carbide lattices before and after segmentation.</figcaption>
-    </figure>
-  </div>
-</section>
-
-<!-- ============================================ CAMPANILE -->
-<section id="campanile">
-  <div class="wrap">
-    <p class="kicker">Competition</p>
-    <h2>Campanile Commons</h2>
-    <p class="sub">Cal Sustainable Solutions (ASCE), UC Berkeley &middot; 2025 &middot; 2nd Place, ASCE Nationals</p>
-
-    <figure>
-      <div class="pair">
-        <div class="shot"><img src="assets/campanile-cover.jpg" alt="Campanile Commons competition submission cover with a rendered aerial view of the development" loading="lazy" width="443" height="572"></div>
-        <div class="shot"><img src="assets/campanile-model.jpg" alt="SketchUp site model of the Campanile Commons development showing buildings, green space and solar arrays" loading="lazy" width="513" height="358"></div>
-      </div>
-      <figcaption>Submission cover, carrying the Twinmotion render I helped produce, and the SketchUp site model.</figcaption>
-    </figure>
-
-    <h3>The brief</h3>
-    <p>Each year the team responds to a mock request for proposal with a complete sustainable development, then defends it in front of a judging panel. Campanile Commons was the 2025 entry. I worked on the water and environment sub-team.</p>
-
-    <h3>My scope</h3>
-    <p>I modelled the development in SketchUp, including the hydrogen fuel cells, the central community area, the buildings and the green walls, and helped produce the Twinmotion render that became the submission cover. I also ran material calculations and cost estimating for the proposal, and calculated the energy and water consumption of the green walls.</p>
-
-    <h3>A decision and a tradeoff</h3>
-    <p>I calculated the building loads to work out where machinery could sit. We wanted the solar panels on the roof alongside the hydrogen fuel cells, which would have kept generation close to the equipment it served and freed up ground area. The combined load was too great for the roofs, so we dedicated a section of the site to the panels instead. That buys a structure that works, but it costs usable land and separates the panels from the fuel cells they were meant to sit beside.</p>
-  </div>
-</section>
-
-<!-- ============================================ DISC -->
-<section id="disc">
-  <div class="wrap">
-    <p class="kicker">Design cohort</p>
-    <h2>El Cerrito BART redevelopment</h2>
-    <p class="sub">Design and Innovation for Sustainable Cities (DISC), UC Berkeley &middot; Summer 2025 &middot; Rhinoceros</p>
-
-    <figure>
-      <div class="shot"><img src="assets/disc-plan.jpg" alt="Axonometric site plan of the El Cerrito BART redevelopment along the Ohlone Greenway" loading="lazy" width="541" height="321"></div>
-      <figcaption>Site plan along the Ohlone Greenway, showing green roofs, green space and the pedestrian and bike network.</figcaption>
-    </figure>
-
-    <figure>
-      <div class="shot"><img src="assets/disc-section.jpg" alt="Section drawing through the El Cerrito BART station showing the below grade platform and adjacent development" loading="lazy" width="804" height="452"></div>
-      <figcaption>Section through the station, showing the below grade platform, the station canopy and the adjacent development.</figcaption>
-    </figure>
-
-    <h3>The project</h3>
-    <p>A summer cohort proposal for transit oriented redevelopment around the El Cerrito BART station. I produced the site analysis behind it, researching the water, environmental and energy systems the site would have to work with, and presented the concept in formal design reviews.</p>
-
-    <h3>What the analysis drove</h3>
-    <p>Spacing the buildings deliberately increased shade across the site and raised its albedo, which lowers the heat the development absorbs. Improving transit access reduces how much parking the site has to carry, which frees land for something better. We also designed for a near future with more automation and delivery robots, which lets more of the circulation be walkable paths instead of roads.</p>
-  </div>
-</section>
-
-<!-- ============================================ ABOUT -->
 <section id="about">
   <div class="wrap">
     <p class="kicker">About</p>
-    <h2>A bit more</h2>
+    <h2 class="section-title">A bit more</h2>
     <p>I am a third year at UC Berkeley studying Environmental Engineering Science with a minor in Conservation and Resource Studies, graduating in May 2028.</p>
     <p>Most of what I do falls into three places. I am a design engineer intern at City Structural in San Francisco, where I produce drawing sets and the calculations and documentation behind them. I do research in the Gu Research Group, modeling how water moves around submerged structures. And I am the water specialist on Cal Sustainable Solutions, Berkeley's ASCE competition team, where I own the water and environment scope of a proposal we then have to defend in front of judges.</p>
     <p>I also work as a civil engineering AI trainer, writing engineering problems used to train and evaluate AI models and checking their answers against what the right answer should be. It has made me a lot more specific about which parts of a technical workflow a model can be trusted with and which ones still need a person.</p>
     <p>The thread through all of it is water. What I like most is the beginning of a project, when the problem is not defined yet and you have to work out what is actually being asked before you can solve anything.</p>
-
     <h3>Tools</h3>
     <ul class="plain">
       <li>Drawing and modeling: AutoCAD, SketchUp, Layout, Rhinoceros 8, Twinmotion</li>
@@ -269,7 +130,6 @@ footer p{max-width:var(--measure)}
     </ul>
   </div>
 </section>
-
 </main>
 
 <footer id="contact">
@@ -278,11 +138,11 @@ footer p{max-width:var(--measure)}
     <div class="contact-row">
       <a href="mailto:nistonge@berkeley.edu">nistonge@berkeley.edu</a>
       <a href="https://www.linkedin.com/in/niyahstonge">linkedin.com/in/niyahstonge</a>
+      <a href="assets/NiyahStOnge_Resume.pdf">Resume (PDF)</a>
     </div>
     <p>Currently looking for a Summer 2027 internship in water resources, environmental engineering or building systems, in the Bay Area or San Diego.</p>
-    <p style="margin-top:22px;font-size:.84rem">&copy; 2026 Niyah St. Onge. Project images are shown with the permission of the organizations involved.</p>
+    <p class="fineprint">&copy; 2026 Niyah St. Onge. Project images are shown with the permission of the organizations involved.</p>
   </div>
 </footer>
-
 </body>
 </html>
